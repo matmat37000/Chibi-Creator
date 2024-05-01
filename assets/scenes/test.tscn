@@ -1,0 +1,437 @@
+[gd_scene load_steps=26 format=3 uid="uid://bgf50hbcc3dye"]
+
+[ext_resource type="Script" path="res://assets/scripts/picture_creator.gd" id="1_ankux"]
+[ext_resource type="Texture2D" uid="uid://rb2ogv3n7kvo" path="res://assets/pictures/items/baguette.png" id="2_7sbcq"]
+[ext_resource type="Texture2D" uid="uid://dfafcyun7l2a8" path="res://assets/pictures/items/cut.png" id="2_evtvs"]
+[ext_resource type="Texture2D" uid="uid://ybod4taqbbpq" path="res://assets/pictures/base.png" id="2_qfldl"]
+[ext_resource type="Texture2D" uid="uid://c62h4svtue13q" path="res://assets/pictures/items/glasses.png" id="3_0l1df"]
+[ext_resource type="BitMap" path="res://assets/pictures/click_mask.tres" id="4_cmx88"]
+[ext_resource type="Texture2D" uid="uid://dgir02043ncsu" path="res://assets/pictures/faces/el_moustache.png" id="4_dc1wj"]
+[ext_resource type="Texture2D" uid="uid://dtl63dscrjmbj" path="res://assets/pictures/items/french_hat.png" id="4_ekcpf"]
+[ext_resource type="Texture2D" uid="uid://b5xenl42m56bp" path="res://assets/pictures/items/empty.png" id="4_mlwkh"]
+[ext_resource type="Texture2D" uid="uid://c13wefwuoigci" path="res://assets/pictures/faces/blush.png" id="5_yq7ud"]
+[ext_resource type="Texture2D" uid="uid://d2jqv8i1bl2ms" path="res://assets/pictures/items/ak-47_gun.png" id="6_j1tna"]
+[ext_resource type="Texture2D" uid="uid://bm448156qaxu4" path="res://assets/pictures/items/sign.png" id="7_32qxs"]
+[ext_resource type="Texture2D" uid="uid://mb82a0t0h4gn" path="res://assets/pictures/items/diamond_sword.png" id="9_gbn56"]
+[ext_resource type="Texture2D" uid="uid://bmpttji6lw8sb" path="res://assets/pictures/faces/angry.png" id="11_abj0f"]
+[ext_resource type="Texture2D" uid="uid://b0pbdes7at02y" path="res://assets/pictures/faces/water_drop.png" id="13_vn4hu"]
+[ext_resource type="Texture2D" uid="uid://bdy2olww0h340" path="res://assets/pictures/items/effect_red_transparency.png" id="15_a3qaa"]
+[ext_resource type="Texture2D" uid="uid://dcsthcrbki6yf" path="res://assets/pictures/DarkAbstractBackgrounds_05.png" id="15_s8yuj"]
+[ext_resource type="AudioStream" uid="uid://nduf8ieo6c1k" path="res://assets/sounds/meow.mp3" id="17_th0oq"]
+
+[sub_resource type="Theme" id="Theme_vxvvs"]
+default_font_size = 31
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r3tox"]
+bg_color = Color(0.0745098, 0.0745098, 0.0745098, 1)
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fdgmm"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qqi02"]
+content_margin_left = 15.0
+content_margin_right = 15.0
+bg_color = Color(0, 0, 0, 1)
+border_width_top = 4
+border_color = Color(0.694118, 0.694118, 0.694118, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jcyp0"]
+content_margin_left = 15.0
+content_margin_right = 15.0
+bg_color = Color(0.0666667, 0.109804, 0.188235, 1)
+border_width_top = 4
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b2eqf"]
+content_margin_left = 15.0
+content_margin_right = 15.0
+bg_color = Color(0, 0, 0, 1)
+border_width_top = 4
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+
+[sub_resource type="Theme" id="Theme_mrwgs"]
+default_font_size = 18
+ItemList/styles/panel = SubResource("StyleBoxFlat_r3tox")
+TabContainer/styles/panel = SubResource("StyleBoxEmpty_fdgmm")
+TabContainer/styles/tab_hovered = SubResource("StyleBoxFlat_qqi02")
+TabContainer/styles/tab_selected = SubResource("StyleBoxFlat_jcyp0")
+TabContainer/styles/tab_unselected = SubResource("StyleBoxFlat_b2eqf")
+
+[node name="Main" type="Control" node_paths=PackedStringArray("file_dialog", "cat_button")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_vxvvs")
+script = ExtResource("1_ankux")
+file_dialog = NodePath("FileDialog")
+cat_button = NodePath("Base")
+
+[node name="Editor Background" type="TextureRect" parent="."]
+visible = false
+z_index = -10
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("15_s8yuj")
+expand_mode = 2
+
+[node name="Base" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -511.0
+offset_top = -256.0
+offset_right = 1.0
+offset_bottom = 256.0
+grow_horizontal = 0
+grow_vertical = 2
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("2_qfldl")
+texture_click_mask = ExtResource("4_cmx88")
+
+[node name="Back" type="ColorRect" parent="Base"]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -2.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0)
+
+[node name="Left Item" type="TextureRect" parent="Base"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -20.0
+offset_bottom = 20.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="Right Item" type="TextureRect" parent="Base"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -20.0
+offset_bottom = 20.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="Face" type="TextureRect" parent="Base"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -20.0
+offset_bottom = 20.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="Face2" type="TextureRect" parent="Base"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -20.0
+offset_bottom = 20.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="Face3" type="TextureRect" parent="Base"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -20.0
+offset_bottom = 20.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="Face4" type="TextureRect" parent="Base"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -20.0
+offset_bottom = 20.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="TabContainer" type="TabContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.461
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 100.928
+offset_bottom = -8.0
+grow_vertical = 2
+theme = SubResource("Theme_mrwgs")
+tab_alignment = 1
+drag_to_rearrange_enabled = true
+
+[node name="Left Hand Item" type="ItemList" parent="TabContainer"]
+layout_mode = 2
+text_overrun_behavior = 4
+item_count = 5
+max_columns = 20
+same_column_width = true
+fixed_column_width = 128
+icon_mode = 0
+fixed_icon_size = Vector2i(128, 128)
+item_0/text = "Empty"
+item_0/icon = ExtResource("4_mlwkh")
+item_1/text = "Cut"
+item_1/icon = ExtResource("2_evtvs")
+item_2/text = "Diamond Sword"
+item_2/icon = ExtResource("9_gbn56")
+item_3/text = "Ak-47"
+item_3/icon = ExtResource("6_j1tna")
+item_4/text = "Mincraft Sign"
+item_4/icon = ExtResource("7_32qxs")
+
+[node name="Right Hand Item" type="ItemList" parent="TabContainer"]
+visible = false
+layout_mode = 2
+text_overrun_behavior = 4
+item_count = 2
+max_columns = 20
+same_column_width = true
+fixed_column_width = 128
+icon_mode = 0
+fixed_icon_size = Vector2i(128, 128)
+item_0/text = "Empty"
+item_0/icon = ExtResource("4_mlwkh")
+item_1/text = "Baguette"
+item_1/icon = ExtResource("2_7sbcq")
+
+[node name="Face" type="ItemList" parent="TabContainer"]
+visible = false
+layout_mode = 2
+text_overrun_behavior = 4
+item_count = 7
+max_columns = 20
+same_column_width = true
+fixed_column_width = 128
+icon_mode = 0
+fixed_icon_size = Vector2i(128, 128)
+item_0/text = "Empty"
+item_0/icon = ExtResource("4_mlwkh")
+item_1/text = "Glasses"
+item_1/icon = ExtResource("3_0l1df")
+item_2/text = "French Hat"
+item_2/icon = ExtResource("4_ekcpf")
+item_3/text = "Angry"
+item_3/icon = ExtResource("11_abj0f")
+item_4/text = "El Moustache"
+item_4/icon = ExtResource("4_dc1wj")
+item_5/text = "Water Drop"
+item_5/icon = ExtResource("13_vn4hu")
+item_6/text = "Blush"
+item_6/icon = ExtResource("5_yq7ud")
+
+[node name="Face2" type="ItemList" parent="TabContainer"]
+visible = false
+layout_mode = 2
+text_overrun_behavior = 4
+item_count = 8
+max_columns = 20
+same_column_width = true
+fixed_column_width = 128
+icon_mode = 0
+fixed_icon_size = Vector2i(128, 128)
+item_0/text = "Empty"
+item_0/icon = ExtResource("4_mlwkh")
+item_1/text = "Glasses"
+item_1/icon = ExtResource("3_0l1df")
+item_2/text = "French Hat"
+item_2/icon = ExtResource("4_ekcpf")
+item_3/text = "Angry"
+item_3/icon = ExtResource("11_abj0f")
+item_4/text = "El Moustache"
+item_4/icon = ExtResource("4_dc1wj")
+item_5/text = "Water Drop"
+item_5/icon = ExtResource("13_vn4hu")
+item_6/text = "Blush"
+item_6/icon = ExtResource("5_yq7ud")
+item_7/text = "Red Transparent Effect"
+item_7/icon = ExtResource("15_a3qaa")
+
+[node name="Face3" type="ItemList" parent="TabContainer"]
+visible = false
+layout_mode = 2
+text_overrun_behavior = 4
+item_count = 8
+max_columns = 20
+same_column_width = true
+fixed_column_width = 128
+icon_mode = 0
+fixed_icon_size = Vector2i(128, 128)
+item_0/text = "Empty"
+item_0/icon = ExtResource("4_mlwkh")
+item_1/text = "Glasses"
+item_1/icon = ExtResource("3_0l1df")
+item_2/text = "French Hat"
+item_2/icon = ExtResource("4_ekcpf")
+item_3/text = "Angry"
+item_3/icon = ExtResource("11_abj0f")
+item_4/text = "El Moustache"
+item_4/icon = ExtResource("4_dc1wj")
+item_5/text = "Water Drop"
+item_5/icon = ExtResource("13_vn4hu")
+item_6/text = "Blush"
+item_6/icon = ExtResource("5_yq7ud")
+item_7/text = "Red Transparent Effect"
+item_7/icon = ExtResource("15_a3qaa")
+
+[node name="Face4" type="ItemList" parent="TabContainer"]
+visible = false
+layout_mode = 2
+text_overrun_behavior = 4
+item_count = 8
+max_columns = 20
+same_column_width = true
+fixed_column_width = 128
+icon_mode = 0
+fixed_icon_size = Vector2i(128, 128)
+item_0/text = "Empty"
+item_0/icon = ExtResource("4_mlwkh")
+item_1/text = "Glasses"
+item_1/icon = ExtResource("3_0l1df")
+item_2/text = "French Hat"
+item_2/icon = ExtResource("4_ekcpf")
+item_3/text = "Angry"
+item_3/icon = ExtResource("11_abj0f")
+item_4/text = "El Moustache"
+item_4/icon = ExtResource("4_dc1wj")
+item_5/text = "Water Drop"
+item_5/icon = ExtResource("13_vn4hu")
+item_6/text = "Blush"
+item_6/icon = ExtResource("5_yq7ud")
+item_7/text = "Red Transparent Effect"
+item_7/icon = ExtResource("15_a3qaa")
+
+[node name="Background" type="ColorPickerButton" parent="TabContainer"]
+visible = false
+layout_mode = 2
+color = Color(0, 0, 0, 0)
+
+[node name="Generate" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.72
+anchor_top = 0.914
+anchor_right = 0.838
+anchor_bottom = 0.963
+offset_left = -93.4401
+offset_top = -16.272
+offset_right = 130.624
+offset_bottom = -8.02399
+grow_horizontal = 0
+grow_vertical = 0
+mouse_default_cursor_shape = 2
+text = "Generate !"
+
+[node name="Size" type="SpinBox" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.72
+anchor_top = 0.046
+anchor_right = 0.838
+anchor_bottom = 0.094
+offset_left = -0.440063
+offset_top = 0.191998
+offset_right = -0.376099
+offset_bottom = 0.0879974
+min_value = 128.0
+max_value = 4096.0
+value = 512.0
+allow_greater = true
+alignment = 1
+suffix = "x 512"
+
+[node name="Label" type="Label" parent="Size"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.309
+anchor_bottom = 1.0
+offset_left = 0.0239639
+offset_right = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Size:"
+
+[node name="FileDialog" type="FileDialog" parent="."]
+initial_position = 2
+size = Vector2i(454, 600)
+access = 2
+filters = PackedStringArray(".png")
+show_hidden_files = true
+use_native_dialog = true
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -23.0
+grow_horizontal = 0
+grow_vertical = 0
+mouse_filter = 1
+mouse_default_cursor_shape = 16
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+text = "BY MATHIOL | Version 1.4"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CatSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("17_th0oq")
+
+[connection signal="pressed" from="Base" to="." method="_on_base_pressed"]
+[connection signal="color_changed" from="TabContainer/Background" to="." method="_on_background_color_changed"]
+[connection signal="pressed" from="Generate" to="." method="_on_generate_pressed"]
+[connection signal="value_changed" from="Size" to="." method="_on_size_value_changed"]
+[connection signal="file_selected" from="FileDialog" to="." method="_on_file_dialog_file_selected"]

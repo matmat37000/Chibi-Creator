@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="item" load_steps=3 format=3 uid="uid://1lakvo8pybxc"]
+
+[ext_resource type="Texture2D" uid="uid://dfafcyun7l2a8" path="res://assets/pictures/items/cut.png" id="1_0exr2"]
+[ext_resource type="Script" path="res://assets/scripts/item.gd" id="2_8gg4h"]
+
+[resource]
+script = ExtResource("2_8gg4h")
+item_name = "Cut"
+item_texture = ExtResource("1_0exr2")
+single = true

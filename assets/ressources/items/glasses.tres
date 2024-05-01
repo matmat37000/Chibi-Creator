@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="item" load_steps=3 format=3 uid="uid://c0pecfxde6pee"]
+
+[ext_resource type="Texture2D" uid="uid://c62h4svtue13q" path="res://assets/pictures/items/glasses.png" id="1_5d1qm"]
+[ext_resource type="Script" path="res://assets/scripts/item.gd" id="1_5uyoo"]
+
+[resource]
+script = ExtResource("1_5uyoo")
+item_name = "Glasses"
+item_texture = ExtResource("1_5d1qm")
+single = true

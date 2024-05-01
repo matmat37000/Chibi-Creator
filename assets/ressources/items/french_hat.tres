@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="item" load_steps=3 format=3 uid="uid://b7dvnnngwbnoy"]
+
+[ext_resource type="Texture2D" uid="uid://dtl63dscrjmbj" path="res://assets/pictures/items/french_hat.png" id="1_t22vk"]
+[ext_resource type="Script" path="res://assets/scripts/item.gd" id="2_ppw68"]
+
+[resource]
+script = ExtResource("2_ppw68")
+item_name = "French Hat"
+item_texture = ExtResource("1_t22vk")
+position = 1
+single = true
